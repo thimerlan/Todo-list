@@ -1,5 +1,4 @@
 import "./App.css";
-import dayjs from "dayjs";
 
 import { HiPlusSm } from "react-icons/hi";
 import { useEffect, useState } from "react";

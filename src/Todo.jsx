@@ -1,8 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import { AiFillEdit } from "react-icons/ai";
-import dayjs from "dayjs";
-import duration from "dayjs/plugin/duration";
+
 const Todo = ({
   todo,
   todoComplete,
