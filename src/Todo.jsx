@@ -21,6 +21,10 @@ const Todo = ({
     if (todo.count.minutes == undefined) {
       setCount((todo.count.minutes = 0));
     }
+    if (todo.count.seconds == undefined) {
+      setCount((todo.count.seconds = 0));
+    }
+
     if (todo.count.minutes > 0) {
       todo.count.seconds == 0 && setCount((todo.count.seconds = 59));
     }
@@ -39,12 +43,9 @@ const Todo = ({
         }
       } else {
         editRef.current !== null && editRef.current.click();
-        // console.clear(); //Извините! :) Что бы убит bug!
       }
     }, 1000);
-    //   : "";
 
-    // setInterval();
     +count.seconds > 0
       ? clearInterval(countInterval)
       : editRef.current !== null && editRef.current.click();
@@ -54,7 +55,6 @@ const Todo = ({
     };
   }, [count, todo.count]);
 
-  //todo.count.seconds === 1 ? (todo.count.seconds = 0) : todo.count.seconds
   return (
     <li className="todo-items">
       <div className="td-content">
@@ -110,7 +110,7 @@ const Todo = ({
         >
           <AiFillEdit />
         </button>
-        <button className="r-btn" onClick={() => deleteTodo(todo.id)}>
+        <button className="d-btn" onClick={() => deleteTodo(todo.id)}>
           <RiDeleteBin5Line size={19} />
         </button>
       </div>

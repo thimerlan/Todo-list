@@ -40,8 +40,9 @@ function App() {
   // Create
   const createTodo = async (e) => {
     e.preventDefault(e);
-    setInput("");
-    setDescr("");
+    setInput((todos.descr = ""));
+    setDescr((todos.input = ""));
+
     if (input && descr !== "") {
       await addDoc(collection(db, "notes"), {
         text: input,
@@ -49,13 +50,10 @@ function App() {
         count,
         completed: false,
       });
-      setInput((todos.input = ""));
-
-      setDescr((todos.descr = ""));
     }
-    setCount({ minutes: 0 });
+    setCount({ seconds: 0, minutes: 0 });
   };
-  console.log(todos);
+
   // Update
   const todoComplete = async (todo) => {
     await updateDoc(doc(db, "notes", todo.id), {
@@ -125,7 +123,12 @@ function App() {
                 />
               </div>
               <button
-                disabled={input.length && descr.length ? false : true}
+                disabled={
+                  (input.length && descr.length && count.seconds >= 0) ||
+                  count.minutes >= 0
+                    ? false
+                    : true
+                }
                 className="add-btn"
               >
                 <HiPlusSm size={50} />

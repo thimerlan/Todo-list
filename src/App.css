@@ -214,7 +214,15 @@ input[type="checkbox"] {
   outline: none;
   margin-right: 12px;
 }
-.r-btn:hover {
+.d-btn {
+  width: 40px;
+  border-radius: 1ex;
+  height: 40px;
+  border: none;
+  outline: none;
+  margin-right: 12px;
+}
+.d-btn:hover {
   background-color: rgb(130, 11, 11);
 }
 .re-btn {
@@ -253,7 +261,4 @@ input[type="number"] {
 }
 .data-add {
   display: flex;
-}
-.noo {
-  display: none;
 }
